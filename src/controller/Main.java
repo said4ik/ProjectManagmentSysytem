@@ -1,6 +1,7 @@
 package controller;
 
 import model.User;
+import service.UserService;
 
 import java.util.Scanner;
 
@@ -10,13 +11,14 @@ public class Main {
     public static Scanner scanStr = new Scanner(System.in);
     public static Scanner scanInt = new Scanner(System.in);
 
+    public static UserService userService = UserService.getInstance();
     public static User curretnUser = null;
 
 
-
     public static void main(String[] args) {
-        
+        UserController.signIn();
     }
+
     public static String inputStr(String hint) {
         System.out.print(hint);
         return scanStr.nextLine();
