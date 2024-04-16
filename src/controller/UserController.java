@@ -18,21 +18,26 @@ public class UserController {
             curretnUser=userService.signIn(username);
         }catch (DataNotFoundException e){
             System.out.println(e.getMessage());
+            signIn();
         }
         if (Objects.equals(curretnUser.getPassword(),password)){
             if (curretnUser.isMissionM()) {
                 roleMenu(curretnUser.getRole());
+                signIn();
             }else {
                 System.out.println("Please do the job !!!");
+                signIn();
             }
         }
         System.out.println("Welcome "+curretnUser.getUsername()+" ! \n");
+
 
     }
 
     public static void roleMenu(Role role){
         switch (role){
             case SUPER_ADMIN -> SuperAdmin.superAdmin();
+            case ADMIN -> AdminController.adminMenu();
         }
     }
 }

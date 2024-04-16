@@ -31,7 +31,7 @@ public class Main {
         return scanStr.nextLine();
     }
 
-    public static int input(String hint) {
+    public static int inputInt(String hint) {
         System.out.print(hint);
         return scanInt.nextInt();
     }
