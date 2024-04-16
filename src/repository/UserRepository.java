@@ -1,4 +1,4 @@
-package service;
+package repository;
 
 import model.User;
 
@@ -7,7 +7,7 @@ public class UserRepository extends BaseRepository<User>{
     public UserRepository getInstance(){
         return userRepository;
     }
-    public UserRepository(){
+    private UserRepository(){
 
     }
 }
