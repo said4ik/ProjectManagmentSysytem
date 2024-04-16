@@ -5,6 +5,7 @@ import enam.Role;
 import java.util.UUID;
 
 public class User extends  BaseModel{
+
     private  String username;
 
     private String password;

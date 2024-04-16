@@ -3,6 +3,7 @@ package model;
 import java.util.UUID;
 
 public class Project extends  BaseModel{
+
     private  String title;
 
     private UUID managerId;
@@ -26,5 +27,12 @@ public class Project extends  BaseModel{
 
     public void setManagerId(UUID managerId) {
         this.managerId = managerId;
+    }
+
+    @Override
+    public String toString() {
+        return "Project{" +
+                "title='" + title + '\'' +
+                '}';
     }
 }
