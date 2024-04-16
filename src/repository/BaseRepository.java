@@ -10,7 +10,7 @@ public abstract class BaseRepository<T extends BaseModel> {
 
    protected ArrayList<T>data=new ArrayList<>();
 
-
+ // oybek chingal chuk
     public void add(T t) {
         data.add(t);
     }
