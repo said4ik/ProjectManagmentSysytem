@@ -12,9 +12,8 @@ public abstract class BaseRepository<T extends BaseModel> {
     public ArrayList<T> getAll(){
         return data;
     }
-    public boolean add(T t){
+    public void add(T t){
         data.add(t);
-        return true;
     }
     public void update(UUID id,T t){
         int i = 0;
