@@ -1,0 +1,6 @@
+package enam;
+
+public enum Role {
+    SUPER_ADMIN,ADMIN,MANAGER,TEAM_LEAD_BE, TEAM_LEAD_F,TESTER, DEVELOPER_BE, DEVELOPER_FE;
+
+}
