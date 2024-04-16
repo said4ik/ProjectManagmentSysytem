@@ -5,7 +5,7 @@ import enam.Role;
 import java.util.UUID;
 
 public class User extends  BaseModel{
-
+  //   oybek hamma narsaga teyibb tawamaz biratishka
     private  String username;
 
     private String password;
