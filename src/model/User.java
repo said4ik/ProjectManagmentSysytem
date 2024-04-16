@@ -23,10 +23,7 @@ public class User extends  BaseModel{
         this.role = role;
     }
 
-    public User(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
+
 
     public String getUsername() {
         return username;
@@ -66,5 +63,14 @@ public class User extends  BaseModel{
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", role=" + role +
+                '}';
     }
 }

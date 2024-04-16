@@ -1,7 +1,9 @@
 package repository;
 
+import enam.Role;
 import model.User;
 
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -21,4 +23,13 @@ public class UserRepository extends BaseRepository<User> {
         return Optional.empty();
     }
 
+    public ArrayList<User>showAdmin(Role role){
+        ArrayList<User>admin=new ArrayList<>();
+        for (User user : data) {
+            if (Objects.equals(user.getRole(),role)&& user.isActive()){
+                admin.add(user);
+            }
+        }
+        return admin;
+    }
 }
