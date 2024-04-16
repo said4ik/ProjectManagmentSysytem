@@ -1,4 +1,6 @@
 package controller;
+import model.User;
+
 import static controller.Main.*;
 public class SuperAdmin {
     public static  void superAdmin(){
@@ -17,5 +19,13 @@ public class SuperAdmin {
     }
 
     private static void addAdmin() {
+        String username=inputStr("Enter username :");
+        String password =inputStr("Enter password :");
+
+        if (userService.add(new User(username,password))){
+            System.out.println("Successfully ✅");
+        }else {
+            System.out.println("Please try again ♻️");
+        }
     }
 }

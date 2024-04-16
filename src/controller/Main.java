@@ -1,5 +1,6 @@
 package controller;
 
+import enam.Role;
 import model.User;
 import service.UserService;
 
@@ -17,6 +18,12 @@ public class Main {
 
     public static void main(String[] args) {
         UserController.signIn();
+    }
+
+    static {
+        userService.add(new User("1", "111", null, Role.SUPER_ADMIN));
+        userService.add(new User("2", "222", null, Role.ADMIN));
+        userService.add(new User("3", "333", null, Role.MANAGER));
     }
 
     public static String inputStr(String hint) {
