@@ -1,9 +1,11 @@
 package service;
 
+import enam.Role;
 import exception.DataNotFoundException;
 import model.User;
 import repository.UserRepository;
 
+import java.util.ArrayList;
 import java.util.function.Supplier;
 
 public class UserService extends BaseService<User, UserRepository> {
@@ -25,6 +27,9 @@ public class UserService extends BaseService<User, UserRepository> {
                 return new DataNotFoundException("user not found");
             }
         });
+    }
+    public ArrayList<User>showAdmins(Role role){
+        return repository.showAdmin(role);
     }
 
     @Override
