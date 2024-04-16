@@ -6,6 +6,7 @@ import model.User;
 import repository.UserRepository;
 
 import java.util.ArrayList;
+import java.util.UUID;
 import java.util.function.Supplier;
 
 public class UserService extends BaseService<User, UserRepository> {
@@ -28,8 +29,13 @@ public class UserService extends BaseService<User, UserRepository> {
             }
         });
     }
-    public ArrayList<User>showAdmins(Role role){
-        return repository.showAdmin(role);
+
+    public ArrayList<User> showRole(Role role) {
+        return repository.showRole(role);
+    }
+
+    public void stopManager(UUID id, boolean ans) {
+        repository.stopManager(id, ans);
     }
 
     @Override
