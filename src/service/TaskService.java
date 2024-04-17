@@ -3,6 +3,8 @@ package service;
 import model.Task;
 import repository.TaskRepository;
 
+import java.util.UUID;
+
 
 public class TaskService extends BaseService<Task, TaskRepository> {
 
@@ -16,6 +18,9 @@ public class TaskService extends BaseService<Task, TaskRepository> {
         super(repository);
     }
 
+    public void deleteTaskForEmployer(UUID id){
+        repository.deleteTaskForEmployer(id);
+    }
     @Override
     public boolean check(Task task) {
         return false;
