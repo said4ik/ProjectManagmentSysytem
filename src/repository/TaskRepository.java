@@ -11,7 +11,7 @@ public class TaskRepository extends BaseRepository<Task>{
     public TaskRepository getInstance(){
         return taskRepository;
     }
-    private TaskRepository(){
+    public TaskRepository(){
 
     }
     public ArrayList<Task> getEmployeeTasks(UUID id){
