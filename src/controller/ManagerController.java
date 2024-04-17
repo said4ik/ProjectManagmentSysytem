@@ -16,7 +16,6 @@ public class ManagerController {
             String command = inputStr("Choose ->");
             switch (command) {
                 case "1" -> projectMenu();
-
                 case "2" -> addEmployer();
                 case "3" -> showEmployer();
                 case "4" -> deleteEmployer();
