@@ -3,9 +3,11 @@ package controller;
 import enam.Role;
 import model.User;
 import service.ProjectService;
+import service.TaskService;
 import service.UserService;
 
 import java.util.Scanner;
+
 import static controller.ProjectController.*;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -16,6 +18,8 @@ public class Main {
 
     public static UserService userService = UserService.getInstance();
     public static ProjectService projectService = ProjectService.getInstance();
+
+    public static TaskService taskService = TaskService.getInstance();
     public static User curretnUser = null;
 
 

@@ -28,4 +28,8 @@ public class ProjectService extends BaseService<Project, ProjectRepository> {
     public ArrayList<Project> getProjectByManagerId(UUID id){
        return repository.getProjectsByManagerId(id);
     }
+
+    public ArrayList<Project>getAllProjects(boolean active){
+        return repository.allProjects(active);
+    }
 }

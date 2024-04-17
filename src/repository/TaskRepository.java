@@ -1,5 +1,6 @@
 package repository;
 
+import enam.Status;
 import model.Task;
 
 import java.util.ArrayList;
@@ -31,6 +32,14 @@ public class TaskRepository extends BaseRepository<Task>{
             }
         }
         return list;
+    }
+    public void deleteTaskForEmployer(UUID id){
+        for (Task task : data) {
+            if (Objects.equals(task.getEmployerId(),id)&& task.getStatus() != Status.ACCEPTED){
+                task.setEmployerId(null);
+                task.setStatus(Status.CREATED);
+            }
+        }
     }
 
 }

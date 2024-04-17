@@ -42,4 +42,16 @@ public class UserRepository extends BaseRepository<User> {
             }
         }
     }
+
+    public ArrayList<User>getEmployerWithProject(UUID id){
+        ArrayList<User> users=new ArrayList<>();
+        for (User user : data) {
+            if (Objects.equals(user.getProjectId(),id)&& user.isActive()){
+                users.add(user);
+            }
+        }
+        return users;
+    }
 }
+
+
