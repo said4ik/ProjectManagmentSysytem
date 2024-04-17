@@ -65,7 +65,7 @@ public class ManagerController {
             String password = inputStr("Enter password :");
 
             if (userService.add(new User(username, password, projects.get(choose).getId(), getRole()))) {
-                System.out.println("Employer Successfully ✅");
+                System.out.println("Employer Successfully Added ✅");
             } else {
                 System.out.println("Please try Again ♻️");
             }
