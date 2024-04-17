@@ -16,6 +16,7 @@ public class ManagerController {
             String command = inputStr("Choose ->");
             switch (command) {
                 case "1" -> projectMenu();
+
                 case "2" -> addEmployer();
                 case "3" -> showEmployer();
                 case "4" -> deleteEmployer();
@@ -68,6 +69,7 @@ public class ManagerController {
                 System.out.println("Employer Successfully Added ✅");
             } else {
                 System.out.println("Please try Again ♻️");
+
             }
 
 
@@ -91,6 +93,7 @@ public class ManagerController {
         }
     }
 
+
     public static Role getRole() {
         Role role = null;
         System.out.println("1 TEAM_LEAD_BE\t2 TEAM_LEAD_FE\t3 TESTER\t 4 DEVELOPER_BE\t5 DEVELOPER_FE");
@@ -104,5 +107,6 @@ public class ManagerController {
         }
 
         return role;
+
     }
 }
