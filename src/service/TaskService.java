@@ -12,7 +12,7 @@ public class TaskService extends BaseService<Task, TaskRepository> {
         return taskService;
     }
 
-    public TaskService(TaskRepository repository) {
+    private TaskService(TaskRepository repository) {
         super(repository);
     }
 

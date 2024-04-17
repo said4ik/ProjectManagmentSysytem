@@ -12,7 +12,7 @@ public class ProjectService extends BaseService<Project, ProjectRepository> {
     public static ProjectService getInstance(){
         return projectService;
     }
-    public ProjectService(){
+    private ProjectService(){
         super(ProjectRepository.getInstance());
     }
 

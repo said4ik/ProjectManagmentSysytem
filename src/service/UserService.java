@@ -17,7 +17,7 @@ public class UserService extends BaseService<User, UserRepository> {
         return userService;
     }
 
-    public UserService(UserRepository repository) {
+    private UserService(UserRepository repository) {
         super(repository);
     }
 
