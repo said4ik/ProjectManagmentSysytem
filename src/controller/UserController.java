@@ -38,6 +38,7 @@ public class UserController {
         switch (role){
             case SUPER_ADMIN -> SuperAdmin.superAdmin();
             case ADMIN -> AdminController.adminMenu();
+            case MANAGER -> ManagerController.managerController();
         }
     }
 }
