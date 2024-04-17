@@ -2,9 +2,11 @@ package controller;
 
 import enam.Role;
 import model.User;
+import service.ProjectService;
 import service.UserService;
 
 import java.util.Scanner;
+import static controller.ProjectController.*;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -13,6 +15,7 @@ public class Main {
     public static Scanner scanInt = new Scanner(System.in);
 
     public static UserService userService = UserService.getInstance();
+    public static ProjectService projectService = ProjectService.getInstance();
     public static User curretnUser = null;
 
 
