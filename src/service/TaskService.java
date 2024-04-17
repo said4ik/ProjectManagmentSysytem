@@ -8,7 +8,7 @@ import java.util.UUID;
 
 public class TaskService extends BaseService<Task, TaskRepository> {
 
-    private static final TaskService taskService=new TaskService(new TaskRepository());
+    private static final TaskService taskService = new TaskService(new TaskRepository());
 
     public static TaskService getInstance() {
         return taskService;
@@ -18,9 +18,10 @@ public class TaskService extends BaseService<Task, TaskRepository> {
         super(repository);
     }
 
-    public void deleteTaskForEmployer(UUID id){
+    public void deleteTaskForEmployer(UUID id) {
         repository.deleteTaskForEmployer(id);
     }
+
     @Override
     public boolean check(Task task) {
         return false;

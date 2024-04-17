@@ -2,9 +2,9 @@ package model;
 
 import java.util.UUID;
 
-public class Project extends  BaseModel{
+public class Project extends BaseModel {
 
-    private  String title;
+    private String title;
 
     private UUID managerId;
 

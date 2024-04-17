@@ -4,10 +4,11 @@ import java.util.UUID;
 
 public abstract class BaseModel {
     {
-        this.id= UUID.randomUUID();
+        this.id = UUID.randomUUID();
     }
-    protected  UUID id;
-    protected boolean isActive=true;
+
+    protected UUID id;
+    protected boolean isActive = true;
 
     public UUID getId() {
         return id;
