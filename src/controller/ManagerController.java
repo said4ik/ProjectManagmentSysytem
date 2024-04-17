@@ -7,6 +7,7 @@ public class ManagerController {
             String command=inputStr("Choose ->");
             switch (command){
                 case "1" -> projectMenu();
+
                 case "0"->UserController.signIn();
             }
         }
