@@ -7,6 +7,7 @@ public class ManagerController {
             String command=inputStr("Choose ->");
             switch (command){
                 case "1" -> projectMenu();
+                case "2"->addEmployer();
                 case "0"->UserController.signIn();
             }
         }
@@ -23,5 +24,9 @@ public class ManagerController {
                 default -> managerController();
             }
         }
+    }
+
+    private static void addEmployer() {
+
     }
 }
