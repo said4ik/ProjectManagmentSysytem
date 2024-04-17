@@ -11,31 +11,31 @@ import static controller.Main.curretnUser;
 public class UserController {
 
     public static void signIn() {
-        String username=inputStr("Enter username :");
-        String password=inputStr("Enter password :");
+        String username = inputStr("Enter username :");
+        String password = inputStr("Enter password :");
 
         try {
-            curretnUser=userService.signIn(username);
-        }catch (DataNotFoundException e){
+            curretnUser = userService.signIn(username);
+        } catch (DataNotFoundException e) {
             System.out.println(e.getMessage());
             signIn();
         }
-        if (Objects.equals(curretnUser.getPassword(),password)){
+        if (Objects.equals(curretnUser.getPassword(), password)) {
             if (curretnUser.isMissionM()) {
                 roleMenu(curretnUser.getRole());
                 signIn();
-            }else {
+            } else {
                 System.out.println("Please do the job !!!");
                 signIn();
             }
         }
-        System.out.println("Welcome "+curretnUser.getUsername()+" ! \n");
+        System.out.println("Welcome " + curretnUser.getUsername() + " ! \n");
 
 
     }
 
-    public static void roleMenu(Role role){
-        switch (role){
+    public static void roleMenu(Role role) {
+        switch (role) {
             case SUPER_ADMIN -> SuperAdmin.superAdmin();
             case ADMIN -> AdminController.adminMenu();
             case MANAGER -> ManagerController.managerController();

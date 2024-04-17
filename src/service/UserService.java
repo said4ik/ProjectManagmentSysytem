@@ -47,9 +47,9 @@ public class UserService extends BaseService<User, UserRepository> {
     public boolean check(User user) {
         for (User active : getActives()) {
             if (Objects.equals(active.getUsername(), user.getUsername())) {
-               return true;
+                return true;
             }
         }
-       return false;
+        return false;
     }
 }
