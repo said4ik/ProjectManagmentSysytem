@@ -2,12 +2,14 @@ package controller;
 
 import enam.Role;
 import model.Project;
+import model.Task;
 import model.User;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 
 import static controller.Main.*;
+
 
 public class ManagerController {
     public static void managerController() {
@@ -26,7 +28,17 @@ public class ManagerController {
         }
     }
 
-    private static void assignTask() {
+    public static void assignTask() {
+        ArrayList<Task> tasks = TaskController.read();
+        try {
+            int choose = inputInt("Choose ->") - 1;
+
+            userService.add(new User(tasks.get(choose).getId(), getRole()));
+            System.out.println("Successfully ✅");
+
+        } catch (InputMismatchException | IndexOutOfBoundsException e) {
+            System.out.println(e.getMessage());
+        }
 
     }
 
@@ -84,8 +96,6 @@ public class ManagerController {
     }
 
 
-
-
     public static void projectMenu() {
         while (true) {
             System.out.println("1.Create\t2.Read\t3.Update\t4.Delete\t0.Exit");
@@ -115,21 +125,22 @@ public class ManagerController {
     }
 
 
-         static Role getRole () {
-            Role role = null;
-            System.out.println("1 TEAM_LEAD_BE\t2 TEAM_LEAD_FE\t3 TESTER\t 4 DEVELOPER_BE\t5 DEVELOPER_FE");
-            String command = inputStr("Choose employer-> ");
-            switch (command) {
-                case "1" -> role = Role.TEAM_LEAD_BE;
-                case "2" -> role = Role.TEAM_LEAD_F;
-                case "3" -> role = Role.TESTER;
-                case "4" -> role = Role.DEVELOPER_BE;
-                case "5" -> role = Role.DEVELOPER_FE;
-            }
-
-            return role;
-
-
+    static Role getRole() {
+        Role role = null;
+        System.out.println("1 TEAM_LEAD_BE\t2 TEAM_LEAD_FE\t3 TESTER\t 4 DEVELOPER_BE\t5 DEVELOPER_FE\t0.Exit");
+        String command = inputStr("Choose employer-> ");
+        switch (command) {
+            case "1" -> role = Role.TEAM_LEAD_BE;
+            case "2" -> role = Role.TEAM_LEAD_F;
+            case "3" -> role = Role.TESTER;
+            case "4" -> role = Role.DEVELOPER_BE;
+            case "5" -> role = Role.DEVELOPER_FE;
+            case "0" -> managerController();
         }
+
+        return role;
+
+
     }
+}
 

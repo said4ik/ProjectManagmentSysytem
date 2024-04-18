@@ -23,6 +23,10 @@ public class User extends BaseModel {
         this.role = role;
     }
 
+    public User(UUID projectId,  Role role) {
+        this.projectId = projectId;
+        this.role = role;
+    }
 
     public String getUsername() {
         return username;

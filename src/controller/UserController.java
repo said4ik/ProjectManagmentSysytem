@@ -21,6 +21,7 @@ public class UserController {
             signIn();
         }
         if (Objects.equals(curretnUser.getPassword(), password)) {
+            System.out.println("Welcome " + curretnUser.getUsername() + " ! \n");
             if (curretnUser.isMissionM()) {
                 roleMenu(curretnUser.getRole());
                 signIn();
@@ -28,8 +29,11 @@ public class UserController {
                 System.out.println("Please do the job !!!");
                 signIn();
             }
+        }else {
+            System.out.println("Wrong password or username");
+            signIn();
         }
-        System.out.println("Welcome " + curretnUser.getUsername() + " ! \n");
+
 
 
     }
