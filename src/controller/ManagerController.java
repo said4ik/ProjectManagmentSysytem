@@ -102,7 +102,7 @@ public class ManagerController {
 
     public static Role taskMenu() {
         while (true) {
-            System.out.println("1.Create\t2.Read\t3.Update\t4.Delete\t0.Exit");
+            System.out.println("1.Create Task\t2.Read Task\t3.Update Task\t4.Delete  Task\t0.Exit");
             String choice = scanStr.nextLine();
             switch (choice) {
                 case "1" -> TaskController.create();
