@@ -3,6 +3,10 @@ package service;
 import model.Task;
 import repository.TaskRepository;
 
+import java.util.ArrayList;
+import java.util.Objects;
+import java.util.UUID;
+
 
 public class TaskService extends BaseService<Task, TaskRepository> {
 
@@ -19,5 +23,9 @@ public class TaskService extends BaseService<Task, TaskRepository> {
     @Override
     public boolean check(Task task) {
         return false;
+    }
+
+    public ArrayList<Task> getEmployeeByProjectId(UUID id){
+        return repository.getEmployeeByProjectId(id);
     }
 }

@@ -24,4 +24,17 @@ public class ManagerController {
             }
         }
     }
+    public static void taskMenu() {
+        while (true) {
+            System.out.println("1.Create\t2.Read\t3.Update\t4.Delete\t0.Exit");
+            String choice = scanStr.nextLine();
+            switch (choice) {
+                case "1" -> TaskController.create();
+                case "2" -> TaskController.read();
+                case "3" -> TaskController.update();
+                case "4" -> TaskController.delete();
+                default -> managerController();
+            }
+        }
+    }
 }
