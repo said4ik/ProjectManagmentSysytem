@@ -21,7 +21,7 @@ public class AdminController {
                 case "2" -> showManager();
                 case "3" -> removeManager();
                 case "4" -> stopManager();
-                case "5"->restartManager();
+                case "5" -> restartManager();
                 case "0" -> UserController.signIn();
             }
         }
