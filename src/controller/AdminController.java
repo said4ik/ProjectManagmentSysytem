@@ -1,6 +1,7 @@
 package controller;
 
 import enam.Role;
+import model.Project;
 import model.User;
 
 import java.util.ArrayList;
@@ -31,9 +32,12 @@ public class AdminController {
         ArrayList<User> manager = showManager();
 
         try {
-            int choose = inputInt("Choose for Stopped ->") - 1;
+            int choose = inputInt("Choose ->") - 1;
+            for (Project project : projectService.getProjectByManagerId(manager.get(choose).getId())) {
+                userService.stopProject(project.getId(),true);
+            }
             userService.stopManager(manager.get(choose).getId(), true);
-            System.out.println("Manager Successfully Restarted ✅");
+            System.out.println("Restart Successfully ✅");
         } catch (InputMismatchException | IndexOutOfBoundsException e) {
             System.out.println(e.getMessage());
         }
@@ -43,9 +47,12 @@ public class AdminController {
         ArrayList<User> manager = showManager();
 
         try {
-            int choose = inputInt("Choose for Stopped ->") - 1;
+            int choose = inputInt("Choose ->") - 1;
+            for (Project project : projectService.getProjectByManagerId(manager.get(choose).getId())) {
+                userService.stopProject(project.getId(),false);
+            }
             userService.stopManager(manager.get(choose).getId(), false);
-            System.out.println("Manager Successfully Stopped ✅");
+            System.out.println("Stop Successfully ✅");
         } catch (InputMismatchException | IndexOutOfBoundsException e) {
             System.out.println(e.getMessage());
         }

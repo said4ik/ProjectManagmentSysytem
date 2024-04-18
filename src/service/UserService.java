@@ -39,6 +39,10 @@ public class UserService extends BaseService<User, UserRepository> {
         repository.stopManager(id, ans);
     }
 
+    public void stopProject(UUID id,boolean ans){
+        repository.stopProject(id,ans);
+    }
+
     public ArrayList<User> getEmployerProjects(UUID id) {
         return repository.getEmployerWithProject(id);
     }

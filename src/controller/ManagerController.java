@@ -117,7 +117,7 @@ public class ManagerController {
 
          static Role getRole () {
             Role role = null;
-            System.out.println("1 TEAM_LEAD_BE\t2 TEAM_LEAD_FE\t3 TESTER\t 4 DEVELOPER_BE\t5 DEVELOPER_FE");
+            System.out.println("1 TEAM_LEAD_BE\t2 TEAM_LEAD_FE\t3 TESTER\t 4 DEVELOPER_BE\t5 DEVELOPER_FE\t0.Exit");
             String command = inputStr("Choose employer-> ");
             switch (command) {
                 case "1" -> role = Role.TEAM_LEAD_BE;
@@ -125,6 +125,7 @@ public class ManagerController {
                 case "3" -> role = Role.TESTER;
                 case "4" -> role = Role.DEVELOPER_BE;
                 case "5" -> role = Role.DEVELOPER_FE;
+                case "0" -> managerController();
             }
 
             return role;
