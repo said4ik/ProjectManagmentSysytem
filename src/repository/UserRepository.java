@@ -1,7 +1,6 @@
 package repository;
 
 import enam.Role;
-import model.Project;
 import model.User;
 
 import java.util.ArrayList;
@@ -10,10 +9,15 @@ import java.util.Optional;
 import java.util.UUID;
 
 public class UserRepository extends BaseRepository<User> {
-    private static final UserRepository userRepository = new UserRepository();
+   
+    private  static final UserRepository userRepository=new UserRepository();
 
-    public UserRepository getInstance() {
+    public static UserRepository getInstance() {
         return userRepository;
+    }
+
+    private UserRepository(){
+
     }
 
     public Optional<User> findByUserName(String username) {

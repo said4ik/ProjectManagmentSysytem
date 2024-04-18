@@ -8,13 +8,14 @@ import java.util.Objects;
 import java.util.UUID;
 
 public class ProjectService extends BaseService<Project, ProjectRepository> {
-    private static final ProjectService projectService = new ProjectService();
+
+    private static final ProjectService projectService=new ProjectService();
 
     public static ProjectService getInstance() {
         return projectService;
     }
 
-    public ProjectService() {
+    private ProjectService() {
         super(ProjectRepository.getInstance());
     }
 

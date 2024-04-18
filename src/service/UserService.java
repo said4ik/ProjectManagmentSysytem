@@ -12,14 +12,14 @@ import java.util.function.Supplier;
 
 public class UserService extends BaseService<User, UserRepository> {
 
-    private static final UserService userService = new UserService(new UserRepository());
+    private static final UserService userService = new UserService();
 
     public static UserService getInstance() {
         return userService;
     }
 
-    private UserService(UserRepository repository) {
-        super(repository);
+    private UserService() {
+        super(UserRepository.getInstance());
     }
 
     public User signIn(String username) throws DataNotFoundException {
