@@ -10,11 +10,11 @@ import java.util.UUID;
 public class TaskRepository extends BaseRepository<Task> {
     private static final TaskRepository taskRepository = new TaskRepository();
 
-    public TaskRepository getInstance() {
+    public static TaskRepository getInstance() {
         return taskRepository;
     }
 
-    public TaskRepository() {
+    private TaskRepository() {
 
     }
 

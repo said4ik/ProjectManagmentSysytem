@@ -8,7 +8,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 public class ProjectRepository extends BaseRepository<Project> {
-    private static final ProjectRepository projectRepository = new ProjectRepository();
+   private static final ProjectRepository projectRepository=new ProjectRepository();
 
     public static ProjectRepository getInstance() {
         return projectRepository;

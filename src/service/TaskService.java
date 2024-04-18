@@ -2,6 +2,7 @@ package service;
 
 import model.Task;
 import repository.TaskRepository;
+import repository.UserRepository;
 
 
 import java.util.ArrayList;
@@ -13,14 +14,14 @@ import java.util.UUID;
 
 public class TaskService extends BaseService<Task, TaskRepository> {
 
-    private static final TaskService taskService = new TaskService(new TaskRepository());
+    private static final TaskService taskService = new TaskService();
 
     public static TaskService getInstance() {
         return taskService;
     }
 
-    private TaskService(TaskRepository repository) {
-        super(repository);
+    private TaskService() {
+        super(TaskRepository.getInstance());
     }
 
     public void deleteTaskForEmployer(UUID id) {
