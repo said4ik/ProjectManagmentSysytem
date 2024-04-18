@@ -1,6 +1,7 @@
 package repository;
 
 import model.Project;
+import model.User;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -26,14 +27,6 @@ public class ProjectRepository extends BaseRepository<Project> {
         return list;
     }
 
-    public void stopProjectByManagerId(UUID managerId) {
-        for (Project project : getActives()) {
-            if (Objects.equals(project.getManagerId(), managerId)) {
-                project.setActive(false);
-                return;
-            }
-        }
-    }
 
     public ArrayList<Project> allProjects(boolean active) {
         ArrayList<Project> projects = new ArrayList<>();
