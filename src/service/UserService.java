@@ -6,6 +6,7 @@ import model.User;
 import repository.UserRepository;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.UUID;
 import java.util.function.Supplier;
 
@@ -38,8 +39,17 @@ public class UserService extends BaseService<User, UserRepository> {
         repository.stopManager(id, ans);
     }
 
+    public ArrayList<User> getEmployerProjects(UUID id) {
+        return repository.getEmployerWithProject(id);
+    }
+
     @Override
     public boolean check(User user) {
+        for (User active : getActives()) {
+            if (Objects.equals(active.getUsername(), user.getUsername())) {
+                return true;
+            }
+        }
         return false;
     }
 }

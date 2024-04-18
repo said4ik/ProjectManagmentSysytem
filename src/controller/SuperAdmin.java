@@ -1,6 +1,7 @@
 package controller;
 
 import enam.Role;
+import model.Project;
 import model.User;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ public class SuperAdmin {
                 case "1" -> addAdmin();
                 case "2" -> showAdmins();
                 case "3" -> removeAdmin();
+                case "4" -> allProjects();
                 case "0" -> {
                     UserController.signIn();
 
@@ -25,6 +27,16 @@ public class SuperAdmin {
             }
         }
     }
+
+    private static void allProjects() {
+        ArrayList<Project> projects = projectService.getAllProjects(true);
+
+        int i = 1;
+        for (Project project : projects) {
+            System.out.println(i++ + "." + project);
+        }
+    }
+
 
     private static void removeAdmin() {
         ArrayList<User> admin = showAdmins();
@@ -51,7 +63,7 @@ public class SuperAdmin {
         String username = inputStr("Enter username :");
         String password = inputStr("Enter password :");
 
-        if (userService.add(new User(username, password,null,Role.ADMIN))) {
+        if (userService.add(new User(username, password, null, Role.ADMIN))) {
             System.out.println("Successfully ✅");
             superAdmin();
         } else {

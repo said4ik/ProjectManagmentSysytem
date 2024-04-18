@@ -4,14 +4,14 @@ import enam.Status;
 
 import java.util.UUID;
 
-public class Task extends BaseModel{
-    private  String title;
+public class Task extends BaseModel {
+    private String title;
 
     private UUID projectId;
 
-    private  UUID employerId;
+    private UUID employerId;
 
-    private Status status=Status.CREATED;
+    private Status status = Status.CREATED;
 
 
     public Task(String title, UUID projectId, UUID employerId, Status status) {
