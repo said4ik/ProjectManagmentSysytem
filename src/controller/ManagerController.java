@@ -20,9 +20,14 @@ public class ManagerController {
                 case "3" -> showEmployer();
                 case "4" -> deleteEmployer();
                 case "5" -> taskMenu();
+                case "6" -> assignTask();
                 case "0" -> UserController.signIn();
             }
         }
+    }
+
+    private static void assignTask() {
+
     }
 
     private static void deleteEmployer() {
