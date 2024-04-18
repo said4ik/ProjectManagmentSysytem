@@ -78,6 +78,8 @@ public class ManagerController {
     }
 
 
+
+
     public static void projectMenu() {
         while (true) {
             System.out.println("1.Create\t2.Read\t3.Update\t4.Delete\t0.Exit");
@@ -92,7 +94,7 @@ public class ManagerController {
         }
     }
 
-    public static void taskMenu() {
+    public static Role taskMenu() {
         while (true) {
             System.out.println("1.Create\t2.Read\t3.Update\t4.Delete\t0.Exit");
             String choice = scanStr.nextLine();
@@ -104,23 +106,24 @@ public class ManagerController {
                 default -> managerController();
             }
         }
-
-
-
-    public static Role getRole() {
-        Role role = null;
-        System.out.println("1 TEAM_LEAD_BE\t2 TEAM_LEAD_FE\t3 TESTER\t 4 DEVELOPER_BE\t5 DEVELOPER_FE");
-        String command = inputStr("Choose employer-> ");
-        switch (command) {
-            case "1" -> role = Role.TEAM_LEAD_BE;
-            case "2" -> role = Role.TEAM_LEAD_F;
-            case "3" -> role = Role.TESTER;
-            case "4" -> role = Role.DEVELOPER_BE;
-            case "5" -> role = Role.DEVELOPER_FE;
-        }
-
-        return role;
-
-
     }
-}
+
+
+         static Role getRole () {
+            Role role = null;
+            System.out.println("1 TEAM_LEAD_BE\t2 TEAM_LEAD_FE\t3 TESTER\t 4 DEVELOPER_BE\t5 DEVELOPER_FE");
+            String command = inputStr("Choose employer-> ");
+            switch (command) {
+                case "1" -> role = Role.TEAM_LEAD_BE;
+                case "2" -> role = Role.TEAM_LEAD_F;
+                case "3" -> role = Role.TESTER;
+                case "4" -> role = Role.DEVELOPER_BE;
+                case "5" -> role = Role.DEVELOPER_FE;
+            }
+
+            return role;
+
+
+        }
+    }
+
