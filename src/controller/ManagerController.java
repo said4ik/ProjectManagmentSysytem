@@ -19,6 +19,7 @@ public class ManagerController {
                 case "2" -> addEmployer();
                 case "3" -> showEmployer();
                 case "4" -> deleteEmployer();
+                case "5" -> taskMenu();
                 case "0" -> UserController.signIn();
             }
         }
