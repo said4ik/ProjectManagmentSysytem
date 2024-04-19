@@ -58,7 +58,5 @@ public class UserService extends BaseService<User, UserRepository> {
         return false;
     }
 
-    public ArrayList<User> getTeamLeaderTask(UUID id, Role role) {
-        return repository.getTeamLeaderTask(id, role);
-    }
+
 }

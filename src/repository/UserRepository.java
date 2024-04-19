@@ -68,15 +68,7 @@ public class UserRepository extends BaseRepository<User> {
     }
 
 
-    public ArrayList<User> getTeamLeaderTask(UUID id, Role role) {
-        ArrayList<User> users = new ArrayList<>();
-        for (User user : getActives()) {
-            if (Objects.equals(user.getId(), id) && user.getRole().equals(role)) {
-                users.add(user);
-            }
-        }
-        return users;
-    }
+
 }
 
 
