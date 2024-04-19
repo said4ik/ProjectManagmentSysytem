@@ -43,7 +43,7 @@ public class TaskController {
 
         int choose = inputInt("Choose ->") - 1;
 
-        ArrayList<Task> tasks = taskService.getEmployeeByProjectId(projects.get(choose).getId());
+        ArrayList<Task> tasks = taskService.getTasksByProjectId(projects.get(choose).getId());
 
         int j = 1;
         for (Task task : tasks) {

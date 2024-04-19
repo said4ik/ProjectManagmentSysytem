@@ -18,17 +18,7 @@ public class TaskRepository extends BaseRepository<Task> {
 
     }
 
-    public ArrayList<Task> getEmployeeTasks(UUID id) {
-        ArrayList<Task> list = new ArrayList<>();
-        for (Task task : getActives()) {
-            if (Objects.equals(task.getEmployerId(), id)) {
-                list.add(task);
-            }
-        }
-        return list;
-    }
-
-    public ArrayList<Task> getEmployeeByProjectId(UUID id) {
+    public ArrayList<Task> getTasksByProjectId(UUID id) {
         ArrayList<Task> list = new ArrayList<>();
         for (Task task : getActives()) {
             if (Objects.equals(task.getProjectId(), id)) {

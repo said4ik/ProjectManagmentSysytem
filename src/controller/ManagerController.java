@@ -33,7 +33,7 @@ public class ManagerController {
         try {
             int choose = inputInt("Choose ->") - 1;
 
-            userService.add(new User(tasks.get(choose).getId(), getRole()));
+            //taskService.getEmployeeByProjectId()
             System.out.println("Successfully ✅");
 
         } catch (InputMismatchException | IndexOutOfBoundsException e) {
