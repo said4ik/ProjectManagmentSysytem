@@ -11,8 +11,8 @@ import static controller.Main.curretnUser;
 public class UserController {
 
     public static void signIn() {
-        String username = inputStr("Enter username :");
-        String password = inputStr("Enter password :");
+        String username = inputStr("Enter username : ");
+        String password = inputStr("Enter password : ");
 
         try {
             curretnUser = userService.signIn(username);

@@ -1,22 +1,23 @@
 package controller;
 
 import enam.Role;
+import enam.Status;
 import model.Project;
 import model.Task;
 import model.User;
-
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 
 import static controller.Main.*;
+import static enam.Status.CREATED;
 
 
 public class ManagerController {
     public static void managerController() {
         while (true) {
             System.out.println("1 CRUD Project \t 2 Add Employer \t 3 Show Employer \t 4 Delete Employer \t5 CRUD Task \t 6 Assign Task \t 0 Exit");
-            String command = inputStr("Choose ->");
+            String command = inputStr("Choose -> ");
             switch (command) {
                 case "1" -> projectMenu();
                 case "2" -> addEmployer();
@@ -30,11 +31,27 @@ public class ManagerController {
     }
 
     public static void assignTask() {
+        ArrayList<Task> tasks = TaskController.read();
+        try {
+            int choose = inputInt("Choose -> ") - 1;
 
+            ArrayList<User> users = userService.getNoWorkingEmployerProjects(tasks.get(choose).getProjectId());
+            int i = 1;
+            for (User user : users) {
+                System.out.println(i++ + ". " + user.getUsername() +"  " + user.getRole());
+            }
+            int ans = inputInt("Choose -> ") - 1;
+            User employee = users.get(ans);
+            Task task = tasks.get(choose);
+            task.setEmployerId(employee.getId());
+            taskService.update(task.getId(),task);
+            System.out.println("Successfully ✅");
 
+        } catch (InputMismatchException | IndexOutOfBoundsException e) {
+            System.out.println(e.getMessage());
+        }
 
     }
-
 
     private static void deleteEmployer() {
         ArrayList<User> managers = showEmployer();
@@ -54,7 +71,7 @@ public class ManagerController {
         ArrayList<Project> projects = ProjectController.read();
 
 
-        int choose = inputInt("Choose ->") - 1;
+        int choose = inputInt("Choose -> ") - 1;
 
         ArrayList<User> users = userService.getEmployerProjects(projects.get(choose).getId());
 
@@ -104,9 +121,9 @@ public class ManagerController {
         }
     }
 
-    public static void taskMenu() {
+    public static Role taskMenu() {
         while (true) {
-            System.out.println("1.Create Task\t2.Read Task\t3.Update Task\t4.Delete  Task\t0.Exit");
+            System.out.println("1.Create\t2.Read\t3.Update\t4.Delete\t0.Exit");
             String choice = scanStr.nextLine();
             switch (choice) {
                 case "1" -> TaskController.create();
@@ -119,7 +136,7 @@ public class ManagerController {
     }
 
 
-    public static Role getRole() {
+    static Role getRole() {
         Role role = null;
         System.out.println("1 TEAM_LEAD_BE\t2 TEAM_LEAD_FE\t3 TESTER\t 4 DEVELOPER_BE\t5 DEVELOPER_FE\t0.Exit");
         String command = inputStr("Choose employer-> ");

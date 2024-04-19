@@ -20,20 +20,10 @@ public class TaskRepository extends BaseRepository<Task> {
 
     }
 
-    public ArrayList<Task> getEmployeeTasks(UUID id) {
+    public ArrayList<Task> getTasksByProjectId(UUID id) {
         ArrayList<Task> list = new ArrayList<>();
         for (Task task : getActives()) {
-            if (Objects.equals(task.getEmployerId(), id)) {
-                list.add(task);
-            }
-        }
-        return list;
-    }
-
-    public ArrayList<Task> getEmployeeByProjectId(UUID id) {
-        ArrayList<Task> list = new ArrayList<>();
-        for (Task task : getActives()) {
-            if (Objects.equals(task.getProjectId(), id)) {
+            if (Objects.equals(task.getProjectId(), id) && task.getEmployerId() == null) {
                 list.add(task);
             }
         }
@@ -47,6 +37,14 @@ public class TaskRepository extends BaseRepository<Task> {
                 task.setStatus(Status.CREATED);
             }
         }
+    }
+    public boolean checkWorking (UUID employeeId){
+        for (Task task : getActives()) {
+            if(task.isActive() && Objects.equals(task.getEmployerId(),employeeId)){
+                return false;
+            }
+        }
+        return true;
     }
 
 
