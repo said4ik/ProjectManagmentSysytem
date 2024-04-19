@@ -30,18 +30,7 @@ public class ManagerController {
     }
 
     public static void assignTask() {
-        ArrayList<Task> tasks = TaskController.read();
 
-        try {
-            int choose = inputInt("Choose -> ") - 1;
-            if (userService.add(new User(tasks.get(choose).getId(), getRole()))) {
-                System.out.println("✅");
-            } else {
-                System.out.println("❌");
-            }
-        } catch (InputMismatchException | IndexOutOfBoundsException e) {
-            System.out.println(e.getMessage());
-        }
 
 
     }

@@ -14,7 +14,6 @@ public class UserController {
         String username = inputStr("Enter username :");
         String password = inputStr("Enter password :");
 
-        //zayful
         try {
             curretnUser = userService.signIn(username);
         } catch (DataNotFoundException e) {
