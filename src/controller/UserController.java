@@ -24,7 +24,7 @@ public class UserController {
             System.out.println("Welcome " + curretnUser.getUsername() + " ! \n");
             if (curretnUser.isMissionM()) {
                 roleMenu(curretnUser.getRole());
-                signIn();
+
             } else {
                 System.out.println("Please do the job !!!");
                 signIn();
@@ -39,11 +39,14 @@ public class UserController {
     }
 
     public static void roleMenu(Role role) {
+
         switch (role) {
             case SUPER_ADMIN -> SuperAdmin.superAdmin();
             case ADMIN -> AdminController.adminMenu();
             case MANAGER -> ManagerController.managerController();
-            case TEAM_LEAD_BE,TEAM_LEAD_F ->ManagerController.taskMenu();
+            case TEAM_LEAD_BE,TEAM_LEAD_F ->
+
+
         }
     }
 }

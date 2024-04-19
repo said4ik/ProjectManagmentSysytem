@@ -1,5 +1,6 @@
 package model;
 
+import enam.Role;
 import enam.Status;
 
 import java.util.UUID;
@@ -10,6 +11,7 @@ public class Task extends BaseModel {
     private UUID projectId;
 
     private UUID employerId;
+
 
     private Status status = Status.CREATED;
 
@@ -25,6 +27,9 @@ public class Task extends BaseModel {
         this.title = title;
         this.projectId = projectId;
     }
+
+
+
 
     public String getTitle() {
         return title;
@@ -53,6 +58,8 @@ public class Task extends BaseModel {
     public Status getStatus() {
         return status;
     }
+
+
 
     public void setStatus(Status status) {
         this.status = status;

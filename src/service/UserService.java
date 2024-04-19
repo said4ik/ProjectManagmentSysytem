@@ -39,13 +39,14 @@ public class UserService extends BaseService<User, UserRepository> {
         repository.stopManager(id, ans);
     }
 
-    public void stopProject(UUID id,boolean ans){
-        repository.stopProject(id,ans);
+    public void stopProject(UUID id, boolean ans) {
+        repository.stopProject(id, ans);
     }
 
     public ArrayList<User> getEmployerProjects(UUID id) {
         return repository.getEmployerWithProject(id);
     }
+
 
     @Override
     public boolean check(User user) {
@@ -55,5 +56,9 @@ public class UserService extends BaseService<User, UserRepository> {
             }
         }
         return false;
+    }
+
+    public ArrayList<User> getTeamLeaderTask(UUID id, Role role) {
+        return repository.getTeamLeaderTask(id, role);
     }
 }

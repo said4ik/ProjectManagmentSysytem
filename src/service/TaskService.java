@@ -32,7 +32,9 @@ public class TaskService extends BaseService<Task, TaskRepository> {
     public boolean check(Task task) {
         return false;
     }
-
+    public ArrayList<Task> getEmployeeTasks(UUID id) {
+        return repository.getEmployeeTasks(id);
+    }
     public ArrayList<Task> getEmployeeByProjectId(UUID id){
         return repository.getEmployeeByProjectId(id);
     }

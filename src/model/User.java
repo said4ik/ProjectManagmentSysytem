@@ -6,6 +6,7 @@ import java.util.UUID;
 
 public class User extends BaseModel {
 
+
     private String username;
 
     private String password;
@@ -13,6 +14,7 @@ public class User extends BaseModel {
     private UUID projectId;
 
     private boolean missionM = true;
+
 
     private Role role;
 
@@ -27,6 +29,9 @@ public class User extends BaseModel {
         this.projectId = projectId;
         this.role = role;
     }
+
+
+
 
     public String getUsername() {
         return username;

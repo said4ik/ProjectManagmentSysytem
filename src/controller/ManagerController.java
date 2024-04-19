@@ -5,6 +5,7 @@ import model.Project;
 import model.Task;
 import model.User;
 
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 
@@ -30,17 +31,21 @@ public class ManagerController {
 
     public static void assignTask() {
         ArrayList<Task> tasks = TaskController.read();
+
         try {
-            int choose = inputInt("Choose ->") - 1;
-
-            userService.add(new User(tasks.get(choose).getId(), getRole()));
-            System.out.println("Successfully ✅");
-
+            int choose = inputInt("Choose -> ") - 1;
+            if (userService.add(new User(tasks.get(choose).getId(), getRole()))) {
+                System.out.println("✅");
+            } else {
+                System.out.println("❌");
+            }
         } catch (InputMismatchException | IndexOutOfBoundsException e) {
             System.out.println(e.getMessage());
         }
 
+
     }
+
 
     private static void deleteEmployer() {
         ArrayList<User> managers = showEmployer();
@@ -110,7 +115,7 @@ public class ManagerController {
         }
     }
 
-    public static Role taskMenu() {
+    public static void taskMenu() {
         while (true) {
             System.out.println("1.Create Task\t2.Read Task\t3.Update Task\t4.Delete  Task\t0.Exit");
             String choice = scanStr.nextLine();
@@ -125,7 +130,7 @@ public class ManagerController {
     }
 
 
-    static Role getRole() {
+    public static Role getRole() {
         Role role = null;
         System.out.println("1 TEAM_LEAD_BE\t2 TEAM_LEAD_FE\t3 TESTER\t 4 DEVELOPER_BE\t5 DEVELOPER_FE\t0.Exit");
         String command = inputStr("Choose employer-> ");

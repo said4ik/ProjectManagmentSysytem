@@ -9,14 +9,14 @@ import java.util.Optional;
 import java.util.UUID;
 
 public class UserRepository extends BaseRepository<User> {
-   
-    private  static final UserRepository userRepository=new UserRepository();
+
+    private static final UserRepository userRepository = new UserRepository();
 
     public static UserRepository getInstance() {
         return userRepository;
     }
 
-    private UserRepository(){
+    private UserRepository() {
 
     }
 
@@ -47,21 +47,31 @@ public class UserRepository extends BaseRepository<User> {
             }
         }
     }
+
     public void stopProject(UUID id, boolean ans) {
         for (User user : data) {
-            if (Objects.equals(user.getProjectId(),id)){
+            if (Objects.equals(user.getProjectId(), id)) {
                 user.setMissionM(ans);
             }
         }
     }
 
 
-
-
     public ArrayList<User> getEmployerWithProject(UUID id) {
         ArrayList<User> users = new ArrayList<>();
         for (User user : getActives()) {
             if (Objects.equals(user.getProjectId(), id)) {
+                users.add(user);
+            }
+        }
+        return users;
+    }
+
+
+    public ArrayList<User> getTeamLeaderTask(UUID id, Role role) {
+        ArrayList<User> users = new ArrayList<>();
+        for (User user : getActives()) {
+            if (Objects.equals(user.getId(), id) && user.getRole().equals(role)) {
                 users.add(user);
             }
         }
