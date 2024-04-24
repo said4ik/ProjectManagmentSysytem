@@ -33,7 +33,12 @@ public class TaskService extends BaseService<Task, TaskRepository> {
         return false;
     }
 
-    public ArrayList<Task> getTasksByProjectId(UUID id){
+    public ArrayList<Task> getTasksByProjectId(UUID id) {
         return repository.getTasksByProjectId(id);
+    }
+
+
+    public ArrayList<Task>statusCreated(){
+        return repository.statusCreated();
     }
 }
