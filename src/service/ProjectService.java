@@ -1,11 +1,13 @@
 package service;
 
+import exception.DataNotFoundException;
 import model.Project;
 import repository.ProjectRepository;
 
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.UUID;
+import java.util.function.Supplier;
 
 public class ProjectService extends BaseService<Project, ProjectRepository> {
 
@@ -35,5 +37,13 @@ public class ProjectService extends BaseService<Project, ProjectRepository> {
 
     public ArrayList<Project> getAllProjects(boolean active) {
         return repository.allProjects(active);
+    }
+    public Project getProject(UUID projectId) throws DataNotFoundException{
+        return repository.getProject(projectId).orElseThrow(new Supplier<DataNotFoundException>(){
+            @Override
+            public DataNotFoundException get() {
+                return new DataNotFoundException("user not found");
+            }
+        });
     }
 }

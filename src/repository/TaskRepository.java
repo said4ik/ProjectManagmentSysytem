@@ -2,6 +2,7 @@ package repository;
 
 import enam.Role;
 import enam.Status;
+import model.Project;
 import model.Task;
 import model.User;
 
@@ -58,6 +59,5 @@ public class TaskRepository extends BaseRepository<Task> {
         }
         return tasks;
     }
-
 
 }

@@ -32,9 +32,15 @@ public class ManagerController {
 
     public static void assignTask() {
         ArrayList<Task> tasks = TaskController.read();
+        if(tasks.isEmpty()){
+            managerController();
+        }
         try {
             int choose = inputInt("Choose -> ") - 1;
-
+            int choice = scanInt.nextInt() - 1;
+            if (choice == -1) {
+                managerController();
+            }
             ArrayList<User> users = userService.getNoWorkingEmployerProjects(tasks.get(choose).getProjectId());
             int i = 1;
             for (User user : users) {

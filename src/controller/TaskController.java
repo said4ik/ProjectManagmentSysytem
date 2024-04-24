@@ -22,8 +22,8 @@ public class TaskController {
         }
 
         try {
-            int choose = inputInt("Choose ->") - 1;
-            String title = inputStr("Enter title :");
+            int choose = inputInt("Choose -> ") - 1;
+            String title = inputStr("Enter title : ");
 
             taskService.add(new Task(title, projects.get(choose).getId()));
 
