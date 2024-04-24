@@ -77,6 +77,7 @@ public class TeamLeaderController {
                     case "2" -> read();
                     case "3" -> update();
                     case "4" -> delete();
+                    case "0" -> crudMenu();
                     default -> teamLeaderMenu();
                 }
             }
@@ -174,7 +175,7 @@ public class TeamLeaderController {
             System.out.println(i++ + "." + task.getTitle());
         }
         try {
-            int choose = inputInt("Choose  ->") - 1;
+            int choose = inputInt("Choose  -> ") - 1;
             if (choose == -1) {
                 teamLeaderMenu();
             }

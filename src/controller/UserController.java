@@ -45,6 +45,7 @@ public class UserController {
             case ADMIN -> AdminController.adminMenu();
             case MANAGER -> ManagerController.managerController();
             case TEAM_LEAD_BE,TEAM_LEAD_F -> TeamLeaderController.teamLeaderMenu();
+            case TESTER, DEVELOPER_BE, DEVELOPER_FE -> EmployeeController.employeeMenu();
 
         }
     }

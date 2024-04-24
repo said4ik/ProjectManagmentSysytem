@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 
 import static controller.Main.*;
-
+import static controller.ManagerController.taskMenu;
 
 
 public class TaskController {
@@ -22,7 +22,10 @@ public class TaskController {
         }
 
         try {
-            int choose = inputInt("Choose -> ") - 1;
+            int choose = scanInt.nextInt() -1;
+            if (choose == -1) {
+               taskMenu();
+            }
             String title = inputStr("Enter title : ");
 
             taskService.add(new Task(title, projects.get(choose).getId()));
@@ -40,11 +43,18 @@ public class TaskController {
         for (Project project : projects) {
             System.out.println(i++ + ". " + project.getTitle());
         }
+        System.out.print("Enter choose one: ");
+        ArrayList<Task> tasks = null;
+        try {
+            int choose = scanInt.nextInt() - 1;
+            if (choose == -1) {
+                taskMenu();
+            }
 
-        int choose = inputInt("Choose ->") - 1;
-
-        ArrayList<Task> tasks = taskService.getTasksByProjectId(projects.get(choose).getId());
-
+            tasks = taskService.getTasksByProjectId(projects.get(choose).getId());
+        }catch (InputMismatchException | IndexOutOfBoundsException e){
+            System.out.println(e.getMessage());
+        }
         int j = 1;
         for (Task task : tasks) {
             System.out.println(j++ + ":" + task.getTitle());
@@ -56,7 +66,10 @@ public class TaskController {
         ArrayList<Task> tasks = read();
 
         try {
-            int choose = inputInt("Choose ->") - 1;
+            int choose = scanInt.nextInt() -1;
+            if (choose == -1) {
+                taskMenu();
+            }
 
             String newTitle = inputStr("Enter new title :");
             taskService.update(tasks.get(choose).getId(), new Task(newTitle, tasks.get(choose).getProjectId()));
@@ -70,7 +83,10 @@ public class TaskController {
         ArrayList<Task> tasks = read();
 
         try {
-            int choose = inputInt("Choose ->") - 1;
+            int choose = scanInt.nextInt() -1;
+            if (choose == -1) {
+                taskMenu();
+            }
             if (tasks.get(choose).getStatus() == Status.ACCEPTED) {
                 System.out.println("This is Do not Delete !");
                 delete();

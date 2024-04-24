@@ -31,9 +31,9 @@ public class Main {
     }
 
     static {
-        userService.add(new User("1", "111", null, Role.SUPER_ADMIN));
-        userService.add(new User("2", "222", null, Role.ADMIN));
-        userService.add(new User("3", "333", null, Role.MANAGER));
+        userService.add(new User("1", "1", null, Role.SUPER_ADMIN));
+        userService.add(new User("2", "2", null, Role.ADMIN));
+        userService.add(new User("3", "3", null, Role.MANAGER));
     }
 
     public static String inputStr(String hint) {

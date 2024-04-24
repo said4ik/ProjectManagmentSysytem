@@ -15,8 +15,8 @@ public class AdminController {
 
     public static void adminMenu() {
         while (true) {
-            System.out.println("Add Manager \t 2 Show Manager \t 3 Remove Manager \t 4 Stop Manager \t 5 Restart Manager \t 0 Exit");
-            String command = inputStr("Choose ->");
+            System.out.println("1 Add Manager \t 2 Show Manager \t 3 Remove Manager \t 4 Stop Manager \t 5 Restart Manager \t 0 Exit");
+            String command = inputStr("Choose -> ");
             switch (command) {
                 case "1" -> addManager();
                 case "2" -> showManager();
@@ -24,6 +24,7 @@ public class AdminController {
                 case "4" -> stopManager();
                 case "5" -> restartManager();
                 case "0" -> UserController.signIn();
+                default -> adminMenu();
             }
         }
     }
@@ -32,7 +33,11 @@ public class AdminController {
         ArrayList<User> manager = showManager();
 
         try {
-            int choose = inputInt("Choose ->") - 1;
+            System.out.print("0.Exit\tChoose one: ");
+            int choose = scanInt.nextInt() -1;
+            if (choose == -1) {
+                adminMenu();
+            }
             for (Project project : projectService.getProjectByManagerId(manager.get(choose).getId())) {
                 userService.stopProject(project.getId(),true);
             }
@@ -47,7 +52,11 @@ public class AdminController {
         ArrayList<User> manager = showManager();
 
         try {
-            int choose = inputInt("Choose ->") - 1;
+            System.out.print("0.Exit\tChoose one: ");
+            int choose = scanInt.nextInt() -1;
+            if (choose == -1) {
+                adminMenu();
+            }
             for (Project project : projectService.getProjectByManagerId(manager.get(choose).getId())) {
                 userService.stopProject(project.getId(),false);
             }
@@ -62,7 +71,11 @@ public class AdminController {
         ArrayList<User> manager = showManager();
 
         try {
-            int choose = inputInt("Choose for Delete ->") - 1;
+            System.out.print("0.Exit\tChoose one: ");
+            int choose = scanInt.nextInt() -1;
+            if (choose == -1) {
+                adminMenu();
+            }
             userService.delete(manager.get(choose).getId());
             System.out.println("Delete Successfully ✅");
         } catch (InputMismatchException | IndexOutOfBoundsException e) {

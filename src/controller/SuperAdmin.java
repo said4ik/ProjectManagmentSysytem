@@ -12,18 +12,15 @@ import static controller.Main.*;
 public class SuperAdmin {
     public static void superAdmin() {
         while (true) {
-            System.out.println("1 Add Admin \t 2 Show Amin \t 3 Remove Admin \t 4 All projects \t 0 Exit");
-            String command = inputStr("Choose ->");
+            System.out.println("1 Add Admin\t2 Show Amin\t3 Remove Admin \t 4 All projects \t 0 Exit");
+            String command = inputStr("Choose -> ");
             switch (command) {
                 case "1" -> addAdmin();
                 case "2" -> showAdmins();
                 case "3" -> removeAdmin();
                 case "4" -> allProjects();
-                case "0" -> {
-                    UserController.signIn();
-
-                }
-
+                case "0" -> UserController.signIn();
+                default -> superAdmin();
             }
         }
     }
@@ -42,7 +39,10 @@ public class SuperAdmin {
         ArrayList<User> admin = showAdmins();
 
         try {
-            int choose = inputInt("Choose ->") - 1;
+            int choose = scanInt.nextInt() -1;
+            if (choose == -1) {
+                superAdmin();
+            }
             userService.delete(admin.get(choose).getId());
             System.out.println("Delete Successfully ✅");
         } catch (InputMismatchException | IndexOutOfBoundsException e) {
