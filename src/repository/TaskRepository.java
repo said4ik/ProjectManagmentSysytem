@@ -38,15 +38,26 @@ public class TaskRepository extends BaseRepository<Task> {
             }
         }
     }
-    public boolean checkWorking (UUID employeeId){
+
+    public boolean checkWorking(UUID employeeId) {
         for (Task task : getActives()) {
-            if(task.isActive() && Objects.equals(task.getEmployerId(),employeeId)){
+            if (task.isActive() && Objects.equals(task.getEmployerId(), employeeId)) {
                 return false;
             }
         }
         return true;
     }
 
+
+    public ArrayList<Task> statusCreated() {
+        ArrayList<Task> tasks = new ArrayList<>();
+        for (Task task : getActives()) {
+            if (Objects.equals(task.getStatus(), Status.CREATED)) {
+                tasks.add(task);
+            }
+        }
+        return tasks;
+    }
 
 
 }
