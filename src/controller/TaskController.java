@@ -22,6 +22,7 @@ public class TaskController {
         }
 
         try {
+            System.out.print("0.Exit\nChoose one: ");
             int choose = scanInt.nextInt() -1;
             if (choose == -1) {
                taskMenu();
