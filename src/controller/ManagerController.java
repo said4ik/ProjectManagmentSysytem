@@ -95,15 +95,15 @@ public class ManagerController {
                 managerController();
             }
             users = userService.getEmployerProjects(projects.get(choose).getId());
+            int i = 1;
+            for (User user : users) {
+                System.out.println(i++ + "." + user);
+            }
         }catch (InputMismatchException | IndexOutOfBoundsException e){
             System.out.println(e.getMessage());
         }
         if(Objects.isNull(users)){
             managerController();
-        }
-        int i = 1;
-        for (User user : users) {
-            System.out.println(i++ + "." + user);
         }
 
         return users;
