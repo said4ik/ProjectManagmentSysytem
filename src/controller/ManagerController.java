@@ -84,6 +84,9 @@ public class ManagerController {
 
     private static ArrayList<User> showEmployer() {
         ArrayList<Project> projects = ProjectController.read();
+        if(projects.isEmpty()){
+            managerController();
+        }
         ArrayList<User> users = null;
         try {
             System.out.print("0.Exit\tChoose one: ");
@@ -109,7 +112,9 @@ public class ManagerController {
 
     private static void addEmployer() {
         ArrayList<Project> projects = ProjectController.read();
-
+        if(projects.isEmpty()){
+            managerController();
+        }
         try {
             System.out.print("0.Exit\tEnter choice: ");
             int choose = scanInt.nextInt() - 1;
