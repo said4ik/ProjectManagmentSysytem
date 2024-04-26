@@ -77,7 +77,6 @@ public class TeamLeaderController {
                     case "2" -> read();
                     case "3" -> update();
                     case "4" -> delete();
-                    case "0" -> crudMenu();
                     default -> teamLeaderMenu();
                 }
             }
@@ -170,6 +169,10 @@ public class TeamLeaderController {
 
     private static void changeStatus() {
         ArrayList<Task> tasks = taskService.statusCreated();
+        if(tasks.isEmpty()){
+            System.out.println("Create task");
+            teamLeaderMenu();
+        }
         int i = 1;
         for (Task task : tasks) {
             System.out.println(i++ + "." + task.getTitle());
