@@ -21,8 +21,8 @@ public class UserController {
             signIn();
         }
         if (Objects.equals(curretnUser.getPassword(), password)) {
-            System.out.println("Welcome " + curretnUser.getUsername() + " ! \n");
             if (curretnUser.isMissionM()) {
+                System.out.println("Welcome " + curretnUser.getUsername() + " ! \n");
                 roleMenu(curretnUser.getRole());
 
             } else {
