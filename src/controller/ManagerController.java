@@ -84,23 +84,26 @@ public class ManagerController {
 
     private static ArrayList<User> showEmployer() {
         ArrayList<Project> projects = ProjectController.read();
+        if(projects.isEmpty()){
+            managerController();
+        }
         ArrayList<User> users = null;
         try {
             System.out.print("0.Exit\tChoose one: ");
-            int choose = scanStr.nextInt() - 1;
+            int choose = scanInt.nextInt() - 1;
             if (choose == -1) {
                 managerController();
             }
             users = userService.getEmployerProjects(projects.get(choose).getId());
+            int i = 1;
+            for (User user : users) {
+                System.out.println(i++ + "." + user);
+            }
         }catch (InputMismatchException | IndexOutOfBoundsException e){
             System.out.println(e.getMessage());
         }
         if(Objects.isNull(users)){
             managerController();
-        }
-        int i = 1;
-        for (User user : users) {
-            System.out.println(i++ + "." + user);
         }
 
         return users;
@@ -109,7 +112,9 @@ public class ManagerController {
 
     private static void addEmployer() {
         ArrayList<Project> projects = ProjectController.read();
-
+        if(projects.isEmpty()){
+            managerController();
+        }
         try {
             System.out.print("0.Exit\tEnter choice: ");
             int choose = scanInt.nextInt() - 1;
@@ -122,9 +127,10 @@ public class ManagerController {
 
             if (userService.add(new User(username, password, projects.get(choose).getId(), getRole()))) {
                 System.out.println("Employer Successfully Added ✅");
+                managerController();
             } else {
                 System.out.println("Please try Again ♻️");
-
+                managerController();
             }
 
 
