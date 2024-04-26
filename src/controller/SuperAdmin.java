@@ -12,7 +12,7 @@ import static controller.Main.*;
 public class SuperAdmin {
     public static void superAdmin() {
         while (true) {
-            System.out.println("1 Add Admin\t2 Show Amin\t3 Remove Admin \t 4 All projects \t 0 Exit");
+            System.out.println("1 Add Admin\t2 Show Admin\t3 Remove Admin \t 4 All projects \t 0 Exit");
             String command = inputStr("Choose -> ");
             switch (command) {
                 case "1" -> addAdmin();
@@ -60,8 +60,8 @@ public class SuperAdmin {
     }
 
     private static void addAdmin() {
-        String username = inputStr("Enter username :");
-        String password = inputStr("Enter password :");
+        String username = inputStr("Enter username : ");
+        String password = inputStr("Enter password : ");
 
         if (userService.add(new User(username, password, null, Role.ADMIN))) {
             System.out.println("Successfully ✅");
