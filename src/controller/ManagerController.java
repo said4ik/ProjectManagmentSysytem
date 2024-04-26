@@ -90,7 +90,7 @@ public class ManagerController {
         ArrayList<User> users = null;
         try {
             System.out.print("0.Exit\tChoose one: ");
-            int choose = scanStr.nextInt() - 1;
+            int choose = scanInt.nextInt() - 1;
             if (choose == -1) {
                 managerController();
             }
