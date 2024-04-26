@@ -75,10 +75,7 @@ public class User extends BaseModel {
 
     @Override
     public String toString() {
-        return "User{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", role=" + role +
-                '}';
+        return "username = " + username +" " +
+                ", role = " + role;
     }
 }

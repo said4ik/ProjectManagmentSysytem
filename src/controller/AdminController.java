@@ -28,10 +28,25 @@ public class AdminController {
             }
         }
     }
+    private static ArrayList<User> showManagerStop(boolean ans){
+        ArrayList<User> users = new ArrayList<>();
+        for (User user : userService.getActives()) {
+            if(user.getRole().equals(Role.MANAGER) && (user.isMissionM() == ans)){
+                users.add(user);
+            }
+        }
+        return users;
+    }
 
     private static void restartManager() {
-        ArrayList<User> manager = showManager();
-
+        ArrayList<User> manager = showManagerStop(false);
+        int i =1;
+        for (User user : manager) {
+            System.out.println(i++ + ". " + user);
+        }
+        if(manager.isEmpty()){
+            adminMenu();
+        }
         try {
             System.out.print("0.Exit\tChoose one: ");
             int choose = scanInt.nextInt() -1;
@@ -49,8 +64,14 @@ public class AdminController {
     }
 
     private static void stopManager() {
-        ArrayList<User> manager = showManager();
-
+        ArrayList<User> manager = showManagerStop(true);
+        int i = 1;
+        for (User user : manager) {
+            System.out.println(i++ + ". " + user);
+        }
+        if(manager.isEmpty()){
+            adminMenu();
+        }
         try {
             System.out.print("0.Exit\tChoose one: ");
             int choose = scanInt.nextInt() -1;
@@ -69,7 +90,9 @@ public class AdminController {
 
     private static void removeManager() {
         ArrayList<User> manager = showManager();
-
+        if(manager.isEmpty()){
+            adminMenu();
+        }
         try {
             System.out.print("0.Exit\tChoose one: ");
             int choose = scanInt.nextInt() -1;
@@ -86,6 +109,9 @@ public class AdminController {
 
     private static ArrayList<User> showManager() {
         ArrayList<User> manager = userService.showRole(Role.MANAGER);
+        if(manager.isEmpty()){
+            adminMenu();
+        }
         int i = 1;
         for (User user : manager) {
             System.out.println(i++ + "." + user);
@@ -94,8 +120,8 @@ public class AdminController {
     }
 
     private static void addManager() {
-        String username = inputStr("Enter username :");
-        String password = inputStr("Enter password:");
+        String username = inputStr("Enter username : ");
+        String password = inputStr("Enter password: ");
 
         if (userService.add(new User(username, password, null, Role.MANAGER))) {
             System.out.println("Successfully Added ✅");
