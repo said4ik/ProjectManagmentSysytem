@@ -127,9 +127,10 @@ public class ManagerController {
 
             if (userService.add(new User(username, password, projects.get(choose).getId(), getRole()))) {
                 System.out.println("Employer Successfully Added ✅");
+                managerController();
             } else {
                 System.out.println("Please try Again ♻️");
-
+                managerController();
             }
 
 
